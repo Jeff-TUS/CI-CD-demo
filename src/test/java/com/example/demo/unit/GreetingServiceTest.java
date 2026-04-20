@@ -35,12 +35,6 @@ class GreetingServiceTest {
         String greeting = generateGreeting();
         assertTrue(greeting.startsWith("Hello"));
     }
-
-//    @Test
-//    @DisplayName("Intentionally failing test")
-//    void intentionalFailureForDemo() {
-//        fail("Failing test for pipeline demo");
-//    }
     
     private String generateGreeting() {
         return "Hello CI/CD Pipeline!";
