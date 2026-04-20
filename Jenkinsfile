@@ -25,11 +25,16 @@ pipeline {
             post {
                 always {
                     junit testResults: '**/target/surefire-reports/*.xml, **/target/failsafe-reports/*.xml'
+
+                    // FIXED: Explicit paths for JaCoCo
                     jacoco(
-                        execPattern: '**/target/jacoco.exec',
-                        classPattern: '**/target/classes',
-                        sourcePattern: '**/src/main/java'
+                        execPattern: 'target/jacoco.exec',
+                        classPattern: 'target/classes',
+                        sourcePattern: 'src/main/java',
+                        inclusionPattern: 'com/example/demo/**',
+                        exclusionPattern: '**/*Test*'
                     )
+
                     script {
                         def unitReports = findFiles(glob: '**/target/surefire-reports/*.xml')
                         def integrationReports = findFiles(glob: '**/target/failsafe-reports/*.xml')
