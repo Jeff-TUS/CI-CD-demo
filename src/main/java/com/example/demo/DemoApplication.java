@@ -18,6 +18,6 @@ public class DemoApplication {
 
     @GetMapping("/health")
     public String health() {
-        return "OK"
+        return "OK";
     }
 }
