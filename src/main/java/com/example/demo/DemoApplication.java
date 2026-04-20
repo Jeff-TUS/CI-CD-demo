@@ -20,15 +20,4 @@ public class DemoApplication {
     public String health() {
         return "OK";
     }
-
-    @GetMapping("/bad-practice")
-    public String badPractice() {
-        try {
-            int x = 5 / 0;
-        } catch (Exception e) {
-            // Empty catch block - SonarQube blocker issue
-        }
-        String password = "admin123";
-        return "Bad practice endpoint";
-    }
 }
